@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>Reactive Java - Greater MKE Java Meetup</title>
+	<title>Spring Data</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/black.css">
@@ -27,8 +27,7 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<h1>Spring Boot Basics </h1>
-				<h4>Unit Testing</h4>
+				<h1>Spring Data</h1>
 				<p>
 					<small>Created by Jonathan Kupcho</small>
 				</p>
@@ -44,73 +43,34 @@
 			<section>
 				<h2>What we'll cover</h2>
 				<ul>
-					<li class="fragment">Why Unit Test?</li>
-					<li class="fragment">Why Spring Boot?</li>
-					<li class="fragment">General Tips</li>
+					<li class="fragment">What is it?</li>
+					<li class="fragment">Why use it?</li>
 					<li class="fragment">Demo</li>
 				</ul>
 			</section>
 			<section>
-				<h2>Why Unit Test?</h2>
+				<h2>What is it?</h2>
 				<ul>
-					<li class="fragment">Executable Documentation</li>
-					<li class="fragment">Quicker Feedback Loops</li>
-					<li class="fragment">Push Releases Faster</li>
-					<li class="fragment">GitHub badges!!</li>
+					<li class="fragment">Umbrella Project</li>
+					<li class="fragment">Common Conventions</li>
+					<li class="fragment">*Just Works* with Spring</li>
 				</ul>
 			</section>
 			<section>
-				<h2>Why Spring Boot?</h2>
+				<h2>Why use it?</h2>
 				<ul>
-					<li class="fragment">Easily Mock Spring Beans</li>
-					<li class="fragment">Test entire application without deploying</li>
-					<li class="fragment">Opinionated about library choices <small>* still have the ability to be flexible</small></li>
-					<li class="fragment">Syntactic Sugar</li>
+					<li class="fragment">Abstracts common configuration</li>
+					<li class="fragment">Testability first class citizen</li>
+					<li class="fragment">Spring Boot sensible defaults</li>
+					<li class="fragment">Community Support</li>
 				</ul>
-			</section>
-			<section>
-				<h2>General Tips</h2>
-				<ul>
-					<li class="fragment">Unit Tests should execute quickly</li>
-					<li class="fragment">Coverge is important, but don't go crazy</li>
-					<li class="fragment">Tests should consistently pass <small>if it passes once, it should always pass unless you broke something</small></li>
-					<li class="fragment">Test functionality at a granular levl, service and contract at a higher level</li>
-					<li class="fragment">If your test *can* fail, flag it as integration</li>
-				</ul>
-			</section>
-			<section>
-				<h2>General Tips</h2>
-				<h4>Readable Method Names</h4>
-				<pre>
-					<code class="java" data-trim>
-@Test
-public void isOutOfStock_OnHandBelowZero_ShouldReturnTrue() {
-  Inventory inventory = new Inventory(-10, 0);
-
-  assertTrue(inventory.isOutOfStock());
-}
-					</code>
-				</pre>
-			</section>
-			<section>
-				<h2>General Tips</h2>
-				<h4>When coding keep testing in mind</h4>
-				<pre>
-					<code class="java" data-trim>
-// How would you get a consistent result?
-public Long badIdea() {
-  return System.currentTimeMillis();
-}
-
-// How would you assert on anything?
-public void doIt() {
-  service.goDoSomething();
-}
-					</code>
-				</pre>
 			</section>
 			<section>
 				<h2>Demo</h2>
+				<ul>
+					<li>Spring Data REST</li>
+					<li>Spring Data JPA</li>
+				</ul>
 			</section>
 		</div>
 	</div>
