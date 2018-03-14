@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Reactive Java - Greater MKE Java Meetup</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Spring Boot Basics </h1>
+				<h4>Unit Testing</h4>
+				<p>
+					<small>Created by Jonathan Kupcho</small>
+				</p>
+			</section>
+			<section>
+				<h2>About me</h2>
+				<ul>
+					<li class="fragment">Using Spring since 2010</li>
+					<li class="fragment">Fullstack Dev</li>
+					<li class="fragment">Java by Day, JavaScript by Night</li>
+				</ul>
+			</section>
+			<section>
+				<h2>What we'll cover</h2>
+				<ul>
+					<li class="fragment">Why Unit Test?</li>
+					<li class="fragment">Why Spring Boot?</li>
+					<li class="fragment">General Tips</li>
+					<li class="fragment">Demo</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Why Unit Test?</h2>
+				<ul>
+					<li class="fragment">Executable Documentation</li>
+					<li class="fragment">Quicker Feedback Loops</li>
+					<li class="fragment">Push Releases Faster</li>
+					<li class="fragment">GitHub badges!!</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Why Spring Boot?</h2>
+				<ul>
+					<li class="fragment">Easily Mock Spring Beans</li>
+					<li class="fragment">Test entire application without deploying</li>
+					<li class="fragment">Opinionated about library choices <small>* still have the ability to be flexible</small></li>
+					<li class="fragment">Syntactic Sugar</li>
+				</ul>
+			</section>
+			<section>
+				<h2>General Tips</h2>
+				<ul>
+					<li class="fragment">Unit Tests should execute quickly</li>
+					<li class="fragment">Coverge is important, but don't go crazy</li>
+					<li class="fragment">Tests should consistently pass <small>if it passes once, it should always pass unless you broke something</small></li>
+					<li class="fragment">Test functionality at a granular levl, service and contract at a higher level</li>
+					<li class="fragment">If your test *can* fail, flag it as integration</li>
+				</ul>
+			</section>
+			<section>
+				<h2>General Tips</h2>
+				<h4>Readable Method Names</h4>
+				<pre>
+					<code class="java" data-trim>
+@Test
+public void isOutOfStock_OnHandBelowZero_ShouldReturnTrue() {
+  Inventory inventory = new Inventory(-10, 0);
+
+  assertTrue(inventory.isOutOfStock());
+}
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h2>General Tips</h2>
+				<h4>When coding keep testing in mind</h4>
+				<pre>
+					<code class="java" data-trim>
+// How would you get a consistent result?
+public Long badIdea() {
+  return System.currentTimeMillis();
+}
+
+// How would you assert on anything?
+public void doIt() {
+  service.goDoSomething();
+}
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h2>Demo</h2>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>
